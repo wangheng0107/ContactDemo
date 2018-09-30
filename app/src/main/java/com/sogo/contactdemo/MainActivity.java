@@ -35,19 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.tabMode).setOnClickListener(this);
-        doBorrow();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tabMode:
-                doBorrow();
+                doNext();
                 break;
         }
     }
 
-    private void doBorrow() {
+    private void doNext() {
         /*1,去依次串行获取 通讯录 通话记录 短信。中间可能弹出权限提醒
          * 对获取到的数据如果通讯录或者通话记录为0条，则终止流程，toast提示。
          * 获取成功的话则上传，上传结果是否成功不作为能否借款的条件。*/
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onPermissionDenied() {
-
             }
         });
     }
